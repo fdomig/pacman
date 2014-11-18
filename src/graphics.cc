@@ -2,17 +2,12 @@
 
 #include <SDL2/SDL.h>
 
-namespace {
-  const int kWindowWidth = 640;
-  const int kWindowHeight = 480;
-}
-
 Graphics::Graphics() {
   window_ = SDL_CreateWindow("Pac-Man",
     SDL_WINDOWPOS_UNDEFINED,
     SDL_WINDOWPOS_UNDEFINED,
-    kWindowWidth, kWindowHeight,
-    0
+    0, 0,
+    SDL_WINDOW_FULLSCREEN_DESKTOP
   );
   renderer_ = SDL_CreateRenderer(window_, -1, 0);
 }
