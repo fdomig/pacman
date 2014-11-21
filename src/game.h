@@ -1,9 +1,6 @@
 #ifndef GAME_H_
 #define GAME_H_
 
-#include <boost/scoped_ptr.hpp>
-
-class Sprite;
 class Graphics;
 
 class Game {
@@ -15,8 +12,6 @@ private:
 	void eventLoop();
 	void update();
 	void draw(Graphics& graphics);
-
-  boost::scoped_ptr<Sprite> sprite_;
 };
 
 #endif // GAME_H_

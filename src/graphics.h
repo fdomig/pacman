@@ -1,22 +1,17 @@
 #ifndef GRAPHICS_H_
 #define GRAPHICS_H_
 
-class SDL_Window;
-class SDL_Renderer;
-class SDL_Surface;
-class SDL_Rect;
+struct SDL_Window;
+struct SDL_Renderer;
+struct SDL_Texture;
+struct SDL_Rect;
 
 class Graphics {
 public:
   Graphics();
   ~Graphics();
 
-  void blitSurface(
-    SDL_Surface* source,
-    SDL_Rect* source_rect,
-    SDL_Rect* destination_rect);
-
-  void flip();
+  void render();
 
 private:
   SDL_Window* window_;

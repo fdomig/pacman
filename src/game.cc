@@ -1,6 +1,6 @@
 #include "game.h"
 #include "graphics.h"
-#include "sprite.h"
+#include "texture.h"
 
 #include <SDL2/SDL.h>
 
@@ -22,18 +22,14 @@ void Game::eventLoop() {
 	Graphics graphics;
 	SDL_Event event;
 
-	sprite_.reset(new Sprite("content/allsprites.bmp", 0, 0, 32, 32));
-
 	bool running = true;
 	while (running) {
 		const int start_time_ms = SDL_GetTicks();
 		
 		while (SDL_PollEvent(&event)) {
 			switch (event.type) {
-				case SDL_KEYDOWN:
-					if (event.key.keysym.sym == SDLK_ESCAPE) {
-						running = false;
-					}
+				case SDL_QUIT:
+					running = false;
 					break;
 				default:
 					break;
@@ -58,6 +54,5 @@ void Game::update() {
 }
 
 void Game::draw(Graphics& graphics) {
-	sprite_->draw(graphics, 320, 240);
-	graphics.flip();
+	graphics.render();
 }
